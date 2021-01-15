@@ -14,6 +14,16 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
+  def leave
+    @user = User.find(params[:id])
+  end
+
+  def bye
+    @user = User.new
+    @user.save
+    redirect_to "home/top"
+  end
+
   private
 
   def user_params
